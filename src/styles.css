@@ -143,10 +143,6 @@ table {
     --cor-secundaria: #FF5473
 }
 
-body {
-    background-color: var(--cor-branco);
-}
-
 html {
     background-color: var(--cor-primaria);
     font-family: 'Roboto';
