@@ -2,6 +2,7 @@
 @import url(styles-reset.css);
 :root {
     --cor-branco: white;
+    --cor-cinza: #EFEFEF;
     --cor-primaria: #262835;
     --cor-secundaria: #FF5473
 }
