@@ -1,16 +1,17 @@
 .container {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .pokemon {
     position: relative;
     display: flex;
     background: var(--cor-branco);
-    width: 40%;
-    padding: 10px 20px;
+    width: 44%;
+    padding: 5px 10px;
     border-radius: 20px;
-    margin: 10px 10px;
+    margin: 5px 5px;
 }
 
 .pokemon__status h2 {
@@ -18,6 +19,7 @@
     font-style: italic;
     font-weight: 700;
     margin-bottom: 10px;
+    text-transform: capitalize;
 }
 
 .pokemon__status ul {
@@ -43,12 +45,13 @@
     justify-content: center;
     height: 110px;
     width: 90px;
+    margin-left: 20px;
     /*right: 20px;
-    bottom: 20px;*/
+  bottom: 20px;*/
     background: url('../../../assets/background-list-pokemon.svg') no-repeat;
 }
 
 img {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
 }
