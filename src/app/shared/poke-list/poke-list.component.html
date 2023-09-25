@@ -1,6 +1,6 @@
 <div class="container">
     <ng-container *ngFor="let pokemon of getAllPokemons">
-        <a href="" class="pokemon" *ngIf="pokemon.status">
+        <a [routerLink]="['details', pokemon.status.id]" class="pokemon" *ngIf="pokemon.status">
             <section class="pokemon__status">
                 <h2>{{ pokemon.name }}</h2>
 
