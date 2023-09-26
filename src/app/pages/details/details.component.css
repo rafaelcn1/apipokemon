@@ -75,10 +75,10 @@ ol li {
 
 @media(max-width: 320px) {
     .pokemon__names {
-        h1 {
+         :is(h1) {
             font-size: 20px;
         }
-        h2 {
+         :is(h2) {
             top: 35px;
             font-size: 20px;
         }
