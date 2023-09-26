@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { forkJoin } from 'rxjs';
+import { catchError, forkJoin, throwError } from 'rxjs';
 import { PokeApiService } from 'src/app/service/poke-api.service';
 
 @Component({
@@ -9,28 +9,36 @@ import { PokeApiService } from 'src/app/service/poke-api.service';
   styleUrls: ['./details.component.css'],
 })
 export class DetailsComponent implements OnInit {
+  public isLoading: boolean = false;
+  public haveError: boolean = false;
   private urlPokemon: string = 'https://pokeapi.co/api/v2/pokemon';
   private urlPokemonName: string = 'https://pokeapi.co/api/v2/pokemon-species';
+  public pokemon: any;
   constructor(
     private activatedRoute: ActivatedRoute,
     private pokeApiService: PokeApiService
   ) {}
 
   ngOnInit(): void {
-    this.pokemon;
+    this.getPokemon;
   }
 
-  get pokemon() {
+  get getPokemon() {
     const id = this.activatedRoute.snapshot.params['id'];
-    const pokemon = this.pokeApiService.apiGetPokemons(
+    const pokemonId = this.pokeApiService.apiGetPokemons(
       `${this.urlPokemon}/${id}`
     );
     const name = this.pokeApiService.apiGetPokemons(
       `${this.urlPokemonName}/${id}`
     );
 
-    return forkJoin([pokemon, name]).subscribe((res) => {
-      console.log(res);
+    return forkJoin([pokemonId, name]).subscribe((res) => {
+      if (res) {
+        this.pokemon = res;
+        this.isLoading = true;
+      } else {
+        this.haveError = true;
+      }
     });
   }
 }
